@@ -1,4 +1,9 @@
-package main
+package strategy
+
+const cantFlyMsg = "I can't fly!"
+const flyingMsg = "I'm flying!"
+const silenceMsg = "<<<Silence>>>"
+const quackingMsg = "Quack!"
 
 type Duck struct {
 	Flyable
@@ -32,23 +37,23 @@ func (d *Duck) SetQuackable(quackBehavior Quackable) {
 type FlyNoWay struct{}
 
 func (f *FlyNoWay) fly() string {
-	return "I can't fly!"
+	return cantFlyMsg
 }
 
 type FlyWithWings struct{}
 
 func (f *FlyWithWings) fly() string {
-	return "I'm flying!"
+	return flyingMsg
 }
 
 type MuteQuack struct{}
 
 func (m *MuteQuack) quack() string {
-	return "<<<Silence>>>"
+	return silenceMsg
 }
 
 type Quack struct{}
 
 func (q *Quack) quack() string {
-	return "Quack!"
+	return quackingMsg
 }
