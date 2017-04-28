@@ -12,17 +12,17 @@ func TestDuck(t *testing.T) {
 	}
 
 	if quack := d.quack(); quack != silenceMsg {
-		t.Error(errorFmt, "Quack", silenceMsg, quack)
+		t.Errorf(errorFmt, "Quack", silenceMsg, quack)
 	}
 
 	d.SetFlyable(&FlyWithWings{})
 	d.SetQuackable(&Quack{})
 
 	if fly := d.fly(); fly != flyingMsg {
-		t.Error(errorFmt, "Fly", flyingMsg, fly)
+		t.Errorf(errorFmt, "Fly", flyingMsg, fly)
 	}
 
 	if quack := d.quack(); quack != quackingMsg {
-		t.Error(errorFmt, "Quack", quackingMsg, quack)
+		t.Errorf(errorFmt, "Quack", quackingMsg, quack)
 	}
 }
